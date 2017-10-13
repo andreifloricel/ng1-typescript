@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>msg</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+lets go
+
+<script src="../node_modules/systemjs/dist/system.js"></script>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+<script>
+    System.import ('config.js').then (function () {
+        System.import ('app');
+    }).catch (function ( err ) {
+        console.error (err);
+    })
+</script>
+</body>
+
+
+</html>

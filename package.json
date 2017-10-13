@@ -1,0 +1,36 @@
+{
+  "name": "angularjs-with-ts",
+  "version": "1.0.0",
+  "description": "Angularjs Setup for TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && concurrently \"npm run node-sass\" \"npm run tsc:w\" \"npm run lite\"",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "node-sass": "node-sass -o ./dist ./src && node-sass -w -o ./dist ./src",
+    "lite": "lite-server"
+  },
+  "keywords": [
+    "angularjs",
+    "typescript",
+    "systemjs"
+  ],
+  "author": "Saban Ünlü",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/angular": "^1.6.32",
+    "@types/node": "^8.0.34",
+    "concurrently": "^3.5.0",
+    "lite-server": "^2.3.0",
+    "node-sass": "^4.5.3",
+    "typescript": "^2.5.3"
+  },
+  "dependencies": {
+    "angular": "^1.6.6",
+    "bootstrap-sass": "^3.3.7",
+    "jquery": "^3.2.1",
+    "systemjs": "^0.20.19",
+    "systemjs-plugin-text": "0.0.11"
+  }
+}
