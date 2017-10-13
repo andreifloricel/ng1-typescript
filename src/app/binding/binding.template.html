@@ -1,0 +1,36 @@
+<div class="row marketing">
+  
+  <div class="col-xs-6">
+    <h4>input</h4>
+    <div class="input-group">
+      <span class="input-group-addon">foo</span>
+      <input type="number" class="form-control" ng-model="$ctrl.foo">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">bar</span>
+      <input type="number" class="form-control" ng-model="$ctrl.bar">
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <h4>output</h4>
+    <div class="row">
+      <div class="col-xs-6">
+        foo:= {{$ctrl.foo}}
+        <br> bar:= {{$ctrl.bar}}
+        <br> summe: {{ $ctrl.$bindingService.sum ( $ctrl.foo , $ctrl.bar ) }}
+      </div>
+
+      <div class="col-xs-6">
+        foo:= {{::$ctrl.foo}}
+        <br> bar:= {{::$ctrl.bar}}
+        <br> summe: {{ ::$ctrl.$bindingService.sum ( $ctrl.foo , $ctrl.bar ) }}
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="col-xs-12">
+  <a class="btn btn-primary" ng-click="$ctrl.doReset()" href="javascript:void()" role="button">RESET</a>    
+  </div>
+  
+</div>

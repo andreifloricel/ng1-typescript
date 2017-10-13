@@ -2,13 +2,13 @@ System.config({
 
     packages: {
         'app': {
-            main: './app.js',
+            main: './main.js',
             defaultExtension: 'js'
         }
     },
 
     map: {
-        app: 'app',
+        app: './',
         'angular': 'node_modules/angular/angular.js'
     },
     meta: {

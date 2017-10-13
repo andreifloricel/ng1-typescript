@@ -20,6 +20,7 @@ app.run( ( $saban: string ) => {
 });
 
 console.log ( app );
+console.log ( app.name );
 
 export default app;
 
