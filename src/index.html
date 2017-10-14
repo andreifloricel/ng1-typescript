@@ -29,13 +29,15 @@
         </div>
         <div class="col-xs-4">
             <strong>operator</strong>
-            <p ng-bind="'Name:= ' + $ctrl.name"></p>
+            <p ng-bind=":: 'Name:= ' + $ctrl.name"></p>
         </div>
         <div class="col-xs-4">
             <strong>method</strong>
             <p ng-bind-html="$ctrl.getName( 'Name: ')"></p>
         </div>
     </div>
+
+    <button class="btn btn-primary" ng-click="$ctrl.chgName( $event, 'heike' )">change name</button>
 </div>
 
 </body>
