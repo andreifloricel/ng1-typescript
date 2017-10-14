@@ -7,21 +7,36 @@
 </head>
 <body class="container">
 
-    <script src="../node_modules/systemjs/dist/system.js"></script>
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+<script src="../node_modules/systemjs/dist/system.js"></script>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
 
-    <script>
-        System.import ('./config.js').then (function () {
-            System.import ('app');
-        }).catch (function ( err ) {
-            console.error (err);
-        })
-    </script>
+<script>
+    System.import('./config.js').then(function () {
+        System.import('app');
+    }).catch(function (err) {
+        console.error(err);
+    })
+</script>
 
-    <div class="jumbotron" ng-controller="BindingController as $ctrl">
-        <h1 class="header">{{$ctrl.name}}</h1>
+<div class="jumbotron" ng-controller="BindingController as $ctrl">
+    <h1 class="header">{{$ctrl.name}}</h1>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <strong>properties</strong>
+            <p>NAME := {{$ctrl.name}}</p>
+        </div>
+        <div class="col-xs-4">
+            <strong>operator</strong>
+            <p>{{ 'NAME:= ' + $ctrl.name}}</p>
+        </div>
+        <div class="col-xs-4">
+            <strong>method</strong>
+            <p>{{$ctrl.getName( 'Name: ')}}</p>
+        </div>
     </div>
+</div>
 
 </body>
 </html>

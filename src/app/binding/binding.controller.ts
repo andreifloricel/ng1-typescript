@@ -20,4 +20,9 @@ export default class BindingController implements IOnInit{
         console.log ( this.$scope, this.$element );
     }
 
+    getName ( prefix: string = 'n:= ' ): string {
+        console.log ( 'n', prefix );
+        return prefix + this.name;
+    }
+
 }
