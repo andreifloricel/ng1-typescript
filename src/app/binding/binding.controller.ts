@@ -41,4 +41,8 @@ export default class BindingController implements IOnInit{
         console.log ( val.key );
     }
 
+    paste ( val: JQueryEventObject ) {
+        console.log ( val );
+    }
+
 }
