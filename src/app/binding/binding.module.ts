@@ -5,9 +5,9 @@ import { IModule } from 'angular';
 export const bindingModule: IModule = 
   angular.module('app.binding', [])
 
-         .value( 'author', 'saban ünlü' )
-         .value( 'author', 'saban ünlü 2' )
-         .value( 'author', 'saban ünlü 3' )
+         .value<string>( 'author', 'saban ünlü' )
+         .value<string>( 'author', 'saban ünlü 2' )
+         .value<string>( 'author', 'saban ünlü 3' )
 
          .run ( ( author: string ) => {
              console.log ( 'run app.binding', author );
