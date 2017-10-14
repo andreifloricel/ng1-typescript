@@ -37,4 +37,8 @@ export default class BindingController implements IOnInit{
         console.log ( val );
     }
 
+    keyUp ( val: JQueryKeyEventObject ) {
+        console.log ( val.key );
+    }
+
 }

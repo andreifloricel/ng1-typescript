@@ -39,7 +39,10 @@
 
     <div class="input-group">
         <span class="input-group-addon">name</span>
-        <input type="text" class="form-control" ng-model="$ctrl.name" ng-change="$ctrl.nameChanged()">
+        <input type="text" class="form-control" ng-model="$ctrl.name"
+               ng-change="$ctrl.nameChanged()"
+               ng-keyup="$ctrl.keyUp($event)"
+        >
     </div>
     <div class="checkbox">
         <label>
