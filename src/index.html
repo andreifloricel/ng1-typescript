@@ -71,9 +71,16 @@
 
     <button class="btn btn-primary" ng-click="$ctrl.chgName( $event, 'heike' )">change name</button>
 </div>
-
+<div class="row">
+        <h4 class="header">
+            rootval {{rootval}}
+        </h4>
+</div>
 <div class="row">
     <div class="col-xs-12" ng-controller="ParentCtrl" style="background-color: red">
+        <h4 class="header">
+            rootval {{rootval}}
+        </h4>
         <div class="input-group col-xs-5">
             <span class="input-group-addon">val1</span>
             <input type="text" class="form-control" ng-model="val1">
@@ -82,6 +89,10 @@
             <span class="input-group-addon">val2</span>
             <input type="text" class="form-control" ng-model="val2">
         </div>
+        <div class="input-group col-xs-5">
+            <span class="input-group-addon">rootval</span>
+            <input type="text" class="form-control" ng-model="rootval">
+        </div>
         <div class="col-xs-6 col-xs-offset-6" ng-controller="ChildCtrl" style="background-color: yellow">
             <div class="input-group">
                 <span class="input-group-addon">val1</span>
@@ -89,10 +100,14 @@
             </div>
             <div class="input-group">
                 <span class="input-group-addon">val2</span>
-                <input type="text" class="form-control" ng-model="val2">
+                <input type="text" class="form-control" ng-model="$parent.val2">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">rootval</span>
+                <input type="text" class="form-control" ng-model="$root.rootval">
             </div>
         </div>
-    </div>
+    </h4>
 </div>
 
 </body>
