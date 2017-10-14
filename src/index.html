@@ -29,11 +29,11 @@
         </div>
         <div class="col-xs-4">
             <strong>operator</strong>
-            <p>{{ 'NAME:= ' + $ctrl.name}}</p>
+            <p ng-bind="'Name:= ' + $ctrl.name"></p>
         </div>
         <div class="col-xs-4">
             <strong>method</strong>
-            <p>{{$ctrl.getName( 'Name: ')}}</p>
+            <p ng-bind-html="$ctrl.getName( 'Name: ')"></p>
         </div>
     </div>
 </div>

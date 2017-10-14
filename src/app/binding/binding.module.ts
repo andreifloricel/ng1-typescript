@@ -9,10 +9,10 @@ export const bindingModule: IModule =
                         .constant<string> ( 'author', 'uenlue' )
 
                         .run ( ( author: string, copyright: string ) => {
-                            console.log ( 'run app.binding', author, copyright );
+                            // console.log ( 'run app.binding', author, copyright );
                         } )
                         .config ( ( $provide: IProvideService ) => {
-                            console.log ( 'config app.binding' );
+                            // console.log ( 'config app.binding' );
                             $provide.constant ( 'copyright', 'netTrek' );
                         } )
                         .controller ( { BindingController } )
