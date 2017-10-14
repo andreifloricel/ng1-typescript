@@ -8,6 +8,7 @@ import { IOnInit, IRootElementService, IScope } from 'angular';
 export default class BindingController implements IOnInit{
 
     name: string;
+    checked: boolean = false;
 
     constructor ( private author: string,
                   private $scope: IScope,
@@ -26,6 +27,14 @@ export default class BindingController implements IOnInit{
     chgName ( event: Event, name: string = 'john doe' ) {
         console.log ( event );
         this.name = name;
+    }
+
+    nameChanged ( ) {
+        console.log ( this.name );
+    }
+
+    cbChanged ( val?: any ) {
+        console.log ( val );
     }
 
 }
