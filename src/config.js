@@ -9,7 +9,8 @@ System.config({
 
     map: {
         app: './',
-        'angular': 'node_modules/angular/angular.js'
+        'angular': 'node_modules/angular/angular.js',
+        'text': 'node_modules/systemjs-plugin-text/text.js'
     },
     meta: {
         'angular': {

@@ -5,27 +5,23 @@
     <title>msg</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="container">
 
-<script src="../node_modules/systemjs/dist/system.js"></script>
-<script src="../node_modules/jquery/dist/jquery.js"></script>
-<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="../node_modules/systemjs/dist/system.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
 
-<!--
-<script src="../node_modules/angular/angular.js"></script>
--->
+    <script>
+        System.import ('./config.js').then (function () {
+            System.import ('app');
+        }).catch (function ( err ) {
+            console.error (err);
+        })
+    </script>
 
-<script>
-    System.import ('./config.js').then (function () {
-        System.import ('app');
-    }).catch (function ( err ) {
-        console.error (err);
-    })
-</script>
-</body>
-
-    <app-root>
+    <app-root title="'Binding with Angular'">
         loading
     </app-root>
 
+</body>
 </html>

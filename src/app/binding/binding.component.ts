@@ -1,8 +1,9 @@
 // import template from './binding.template.html!text';
+const template = require('./binding.template.html!text');
 import { BindingService } from './binding.service';
 
 export const BindingComponent = {
-  template: '',
+  template,
   controller: class BindComponent {
     constructor ( public $bindingService: BindingService ) {}
     

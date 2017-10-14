@@ -1,7 +1,7 @@
-// import appHTML from './app.template.html!text';
+const template = require('./app.template.html!text');
 
 export const AppComponent = {
-  template: '',
+  template,
   bindings: {
     title: '<'
   },
