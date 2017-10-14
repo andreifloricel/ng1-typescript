@@ -20,7 +20,7 @@ export default class BindingController implements IOnInit{
     }
 
     getName ( prefix: string = 'n:= ' ): string {
-        return `<strong>prefix</strong> ${this.name}`;
+        return `<strong>${prefix}</strong> ${this.name}`;
     }
 
 }
