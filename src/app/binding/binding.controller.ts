@@ -8,6 +8,7 @@ import { IOnInit, IRootElementService, IScope } from 'angular';
 export default class BindingController implements IOnInit{
 
     name: string;
+    main: string;
 
     constructor ( private author: string,
                   private $scope: IScope,

@@ -39,8 +39,34 @@
 
     <div class="input-group">
         <span class="input-group-addon">name</span>
-        <input type="text" class="form-control" ng-model="$ctrl.name">
+        <input
+                type="text"
+                class="form-control"
+                ng-model="$ctrl.name"
+                ng-model-options="{
+                'updateOn': 'default blur',
+                'debounce': {
+                  'default': 500,
+                  'blur': 0
+                }}">
     </div>
+    
+    <form novalidate
+          ng-model-options="{
+                'updateOn': 'default blur',
+                'debounce': {
+                  'default': 500,
+                  'blur': 0
+                }}">
+        <div class="form-group">
+            <label for="inputName">Name (options) </label>
+            <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="$ctrl.name">
+        </div>
+        <div class="form-group">
+            <label for="inputName2">Name (options)</label>
+            <input type="text" class="form-control" id="inputName2" placeholder="Name" ng-model="$ctrl.name">
+        </div>
+    </form>
 
 
     <button class="btn btn-primary" ng-click="$ctrl.chgName( $event, 'heike' )">change name</button>
