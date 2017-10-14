@@ -1,15 +1,17 @@
 import * as angular from 'angular';
 import { IModule } from 'angular';
+import IProvideService = angular.auto.IProvideService;
 
 export const bindingModule: IModule =
                  angular.module ( 'app.binding', [] )
+
                         .constant<string> ( 'author', 'uenlue' )
-                        .constant<string> ( 'author', 'uenlue1' )
-                        .constant<string> ( 'author', 'uenlue2' )
-                        .run ( ( author: string ) => {
-                            console.log ( 'run app.binding', author );
+
+                        .run ( ( author: string, copyright: string ) => {
+                            console.log ( 'run app.binding', author, copyright );
                         })
-                        .config ( ( ) => {
+                        .config ( ( $provide: IProvideService ) => {
                             console.log ( 'config app.binding' );
+                            $provide.constant ( 'copyright', 'netTrek' );
                         })
                 ;
