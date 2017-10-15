@@ -3,7 +3,7 @@
  * Copyright (c) 2017 by netTrek GmbH & Co. KG
  */
 import IUser from './user.interface';
-import { IHttpPromise, IHttpResponse, IHttpService, IPromise, IRequestConfig } from 'angular';
+import { IHttpPromise, IHttpResponse, IHttpService, IPromise, IRequestConfig, IRequestShortcutConfig } from 'angular';
 
 interface ICookiesOptions {
     path?: string;
@@ -32,7 +32,7 @@ export interface IUserService {
     start: Date;
     last: Date;
     users: IUser[];
-    addUser ( user?: IUser ) : IPromise<void|IUser[]>
+    addUser ( user?: IUser ) : IPromise<number | void>
 }
 
 export default class UserService implements IUserService {
@@ -73,9 +73,13 @@ export default class UserService implements IUserService {
             lastname: 'uenlue',
             city: 'dorsten',
         };
+        const token: string = 'Saban Ünlü [netTrek]';
         const endpoint: string = 'http://rest-api.flexlab.de/index.php/api/user';
+        const config: IRequestShortcutConfig = <IRequestShortcutConfig>{
+            params: {token}
+        };
 
-        const promise: IPromise<void|IUser[]> = this.$http.get<IUser[]> ( endpoint )
+        const promise: IPromise<void|IUser[]> = this.$http.get<IUser[]> ( endpoint, config )
                           .then ( // IHttpResponse<IUser[]>
                               result => this.users = result.data,
                               ( error ) => {
