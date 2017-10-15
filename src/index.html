@@ -27,7 +27,7 @@
 </div>
 <ul class="list-unstyled" ng-controller="UserController as $ctrl">
     <li><strong>ngRepeat</strong></li>
-    <li ng-repeat="user in $ctrl.users | limitTo : 5 | orderBy : 'firstName' : true"
+    <li ng-repeat="user in $ctrl.users | limitTo : 5 | orderBy : 'firstName' : true" 
         ng-click="$ctrl.delete ($index)"
         class="user"
         ng-class-even="'even'"
