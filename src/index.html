@@ -24,20 +24,28 @@
 
     <h1 class="header" ng-cloak="">{{$ctrl.name}}</h1>
 
-    <div class="btn-toolbar">
-        <div class="btn-group">
-            <a class="btn" ng-click="$ctrl.content='c1'">c1</a>
-            <a class="btn" ng-click="$ctrl.content='c2'">c2</a>
-            <a class="btn" ng-click="$ctrl.content=''">rest</a>
-        </div>
-    </div>
-
-    <p class="lead" ng-switch-when="c1" ng-bind-html="$ctrl.lorem_c1"></p>
-    <p class="lead" ng-switch-when="c2" ng-bind-html="$ctrl.lorem_c2"></p>
-    <p class="lead" ng-switch-default="" ng-bind-html="$ctrl.lorem"></p>
-
-
 </div>
+<ul class="list-unstyled" ng-controller="UserController as $ctrl">
+    <li><strong>ngRepeat</strong></li>
+    <li ng-repeat="user in $ctrl.users"
+        ng-click="$ctrl.delete ($index)"
+        class="user"
+        ng-class-even="'even'"
+        ng-class-odd="'odd'">
+            [{{user.age}}] {{user.firstName}} {{user.lastName}}
+        <!--
+        <div class="panel-footer">
+            <div>Index:= <span style="margin-left:2em">  {{$index}}</span></div>
+            <div>isFirst:= <span style="margin-left:2em"> {{$first}}</span></div>
+            <div>isMiddle:= <span style="margin-left:1em">{{$middle}}</span></div>
+            <div>isLast:= <span style="margin-left:2em"> {{$last}}</span></div>
+            <div>isEven:= <span style="margin-left:2em"> {{$even}}</span></div>
+            <div>isOdd:= <span style="margin-left:2em"> {{$odd}}</span></div>
+        </div>
+        -->
+
+    </li>
+</ul>
 
 
 </body>

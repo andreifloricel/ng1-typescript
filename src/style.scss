@@ -19,3 +19,17 @@ p.red {
 span.sr-only {
   position: relative;
 }
+
+li.user {
+  padding: 5px;
+  cursor: pointer;
+  &.even {
+    background-color: #5cb85c;
+  }
+  &.odd {
+    background-color: #4cae4c;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
