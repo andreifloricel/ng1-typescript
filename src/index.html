@@ -25,28 +25,22 @@
     <h1 class="header" ng-cloak="">{{$ctrl.name}}</h1>
 
 </div>
-<ul class="list-unstyled" ng-controller="UserController as $ctrl">
-    <li><strong>ngRepeat</strong></li>
-    <li ng-repeat="user in $ctrl.users"
-        ng-click="$ctrl.delete ($index)"
-        class="user"
-        ng-class-even="'even'"
-        ng-class-odd="'odd'">
-            [{{user.age}}] {{user.firstName}} {{user.lastName}}
-        <!--
-        <div class="panel-footer">
-            <div>Index:= <span style="margin-left:2em">  {{$index}}</span></div>
-            <div>isFirst:= <span style="margin-left:2em"> {{$first}}</span></div>
-            <div>isMiddle:= <span style="margin-left:1em">{{$middle}}</span></div>
-            <div>isLast:= <span style="margin-left:2em"> {{$last}}</span></div>
-            <div>isEven:= <span style="margin-left:2em"> {{$even}}</span></div>
-            <div>isOdd:= <span style="margin-left:2em"> {{$odd}}</span></div>
+
+<div class="panel panel-default" ng-controller="UserController as $ctrl">
+    <div class="panel-heading" ng-repeat-start="user in $ctrl.users"  ng-click="$ctrl.delete ($index)">
+        <h3 class="panel-title">{{user.firstName}} {{user.lastName}}</h3>
+    </div>
+    <div class="row panel-body" ng-repeat-end>
+        <div class="col-xs-12">
+            <span class="col-xs-4 lead">eMail</span>
+            <span class="col-xs-8 lead">{{user.email}}</span>
         </div>
-        -->
-
-    </li>
-</ul>
-
+        <div class="col-xs-12">
+            <span class="col-xs-4 lead">age</span>
+            <span class="col-xs-8 lead">{{user.age}}</span>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
