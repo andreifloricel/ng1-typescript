@@ -20,18 +20,21 @@
     })
 </script>
 
-<div class="jumbotron" ng-controller="BindingController as $ctrl">
+<div class="jumbotron" ng-controller="BindingController as $ctrl" ng-switch="$ctrl.content">
+
     <h1 class="header" ng-cloak="">{{$ctrl.name}}</h1>
 
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" ng-model="$ctrl.checked"> show img?
-        </label>
+    <div class="btn-toolbar">
+        <div class="btn-group">
+            <a class="btn" ng-click="$ctrl.content='c1'">c1</a>
+            <a class="btn" ng-click="$ctrl.content='c2'">c2</a>
+            <a class="btn" ng-click="$ctrl.content=''">rest</a>
+        </div>
     </div>
 
-    <img ng-src="{{$ctrl.imgUrl}}"
-         ng-if="$ctrl.checked"
-         alt="Description" class="img-thumbnail">
+    <p class="lead" ng-switch-when="c1" ng-bind-html="$ctrl.lorem_c1"></p>
+    <p class="lead" ng-switch-when="c2" ng-bind-html="$ctrl.lorem_c2"></p>
+    <p class="lead" ng-switch-default="" ng-bind-html="$ctrl.lorem"></p>
 
 
 </div>

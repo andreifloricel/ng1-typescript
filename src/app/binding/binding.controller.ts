@@ -9,8 +9,15 @@ export default class BindingController implements IOnInit{
 
     name: string;
 
-    imgUrl: string = `http://www.nettrek.de/wp-content/uploads/2015/03/nettrek_gf_saban_uenlue-300x199.jpg`;
-    checked: boolean = true;
+    content: string = 'c1';
+
+    lorem_c1: string = '<strong>Lorem c1</strong> ipsum dolor sit amet, consectetur adipisicing elit. At cumque earum eius exercitationem repudiandae tempore? Ad, animi aspernatur blanditiis deleniti doloremque exercitationem facere in labore minus non nostrum rerum, voluptates?';
+
+    lorem_c2: string = '<strong>Lorem c2</strong> ipsum dolor sit amet, consectetur adipisicing elit. At cumque earum eius exercitationem repudiandae tempore? Ad, animi aspernatur blanditiis deleniti doloremque exercitationem facere in labore minus non nostrum rerum, voluptates?';
+
+    lorem: string = '<strong>Lorem</strong> ipsum dolor sit amet, consectetur adipisicing elit. At cumque earum eius exercitationem repudiandae tempore? Ad, animi aspernatur blanditiis deleniti doloremque exercitationem facere in labore minus non nostrum rerum, voluptates?';
+
+
 
     constructor ( private author: string ) {
 
