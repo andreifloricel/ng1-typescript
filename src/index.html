@@ -10,7 +10,7 @@
 
 <script src="../node_modules/systemjs/dist/system.js"></script>
 <script src="../node_modules/jquery/dist/jquery.js"></script>
-<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+<script src="javascripts/bootstrap.js"></script>
 
 <script>
     System.import('./config.js').then(function () {
@@ -23,36 +23,41 @@
 <div class="jumbotron" ng-controller="BindingController as $ctrl">
     <h1 class="header" ng-cloak="">{{$ctrl.name}}</h1>
 
-    <div class="row">
-        <div class="col-xs-4">
-            <strong>properties</strong>
-            <p>NAME := {{$ctrl.name}}</p>
-        </div>
-        <div class="col-xs-4">
-            <strong>operator</strong>
-            <p ng-bind=":: 'Name:= ' + $ctrl.name"></p>
-        </div>
-        <div class="col-xs-4">
-            <strong>method</strong>
-            <p ng-bind-html="$ctrl.getName( 'Name: ')"></p>
+
+    <div class="btn-toolbar">
+        <div class="btn-group">
+            <a ng-click="$ctrl.textClass='text-left'"
+               ng-class="{selected: $ctrl.textClass==='text-left'}"
+               class="btn" href="#"><i class="glyphicon glyphicon-align-left"></i></a>
+            <a ng-click="$ctrl.textClass='text-center'"
+               ng-class="{selected: $ctrl.textClass==='text-center'}"
+               class="btn" href="#"><i class="glyphicon glyphicon-align-center"></i></a>
+            <a ng-click="$ctrl.textClass='text-right'"
+               ng-class="{selected: $ctrl.textClass==='text-right'}"
+               class="btn" href="#"><i class="glyphicon glyphicon-align-right"></i></a>
         </div>
     </div>
 
-    <div class="input-group">
-        <span class="input-group-addon">name</span>
-        <input type="text" class="form-control" ng-model="$ctrl.name"
-               ng-paste="$ctrl.paste($event)"
-        >
-    </div>
+    <p ng-class="$ctrl.textClass" class="lead">
+        <strong >Hello World</strong>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </p>
+
+<!--
     <div class="checkbox">
         <label>
-            <input type="checkbox" ng-change="$ctrl.cbChanged($ctrl.checked)" ng-model="$ctrl.checked"> Check me out
+            <input type="checkbox" ng-model="$ctrl.checked"> red font-color?
         </label>
     </div>
 
+    <p ng-class="[$ctrl.textClass, {red: $ctrl.checked}]" class="lead">
+        <strong>Hello World</strong>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </p>
+-->
 
-    <button class="btn btn-primary" ng-click="$ctrl.chgName( $event, 'heike' )">change name</button>
 </div>
+
 
 </body>
 </html>

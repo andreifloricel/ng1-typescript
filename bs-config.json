@@ -1,6 +1,6 @@
 {
   "files": [ "./**/*.{html,htm,css,js,ts,scss}" ],
   "server": { 
-    "baseDir": ["src", "./", "dist"]
+    "baseDir": ["src", "./", "dist", "node_modules/bootstrap-sass/assets"]
   } 
 }

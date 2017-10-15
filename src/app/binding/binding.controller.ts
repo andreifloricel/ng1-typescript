@@ -9,10 +9,9 @@ export default class BindingController implements IOnInit{
 
     name: string;
     checked: boolean = false;
+    textClass: string = 'text-left';
 
-    constructor ( private author: string,
-                  private $scope: IScope,
-                  private $element: IRootElementService ) {
+    constructor ( private author: string ) {
 
     }
 
@@ -20,29 +19,5 @@ export default class BindingController implements IOnInit{
         this.name = `saban ${this.author}`;
     }
 
-    getName ( prefix: string = 'n:= ' ): string {
-        return `<strong>${prefix}</strong> ${this.name}`;
-    }
-
-    chgName ( event: Event, name: string = 'john doe' ) {
-        console.log ( event );
-        this.name = name;
-    }
-
-    nameChanged ( ) {
-        console.log ( this.name );
-    }
-
-    cbChanged ( val?: any ) {
-        console.log ( val );
-    }
-
-    keyUp ( val: JQueryKeyEventObject ) {
-        console.log ( val.key );
-    }
-
-    paste ( val: JQueryEventObject ) {
-        console.log ( val );
-    }
 
 }
