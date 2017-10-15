@@ -8,11 +8,15 @@ import users from './user.data';
 
 export default class UserController implements IOnInit{
 
+    static $inject: string[] = ['$element'];
+
     users: IUser[] = [...users];
     today: Date = new Date ();
     search: {firstName?: string, lastName?: string} = {};
 
-    constructor () {}
+    constructor ( $element: JQLite ) {
+        console.log ( $element );
+    }
 
     $onInit (): void {
     }

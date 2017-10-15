@@ -1,6 +1,6 @@
 
 import * as angular from 'angular';
-import { IModule } from 'angular';
+import { ICompileProvider, IModule } from 'angular';
 import { bindingModule } from './binding/binding.module';
 import "angularI18n";
 import "ngSanitize";
@@ -13,7 +13,7 @@ export const appModule: IModule =
              // console.log ( 'run app', author );
          })
 
-         .config ( () => {
-              // console.log ( 'config app' );
-         })
+         .config ( ['$compileProvider', ( cp: ICompileProvider ) => {
+             cp.debugInfoEnabled(false);
+         }])
 ;
