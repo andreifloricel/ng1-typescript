@@ -10,8 +10,6 @@ export interface IUserService {
     users: IUser[];
 }
 
-export default function factory (): IUserService {
-    return <IUserService> {
-        users: [...users]
-    }
+export default class UserService implements IUserService {
+    users: IUser[] = [...users];
 }

@@ -5,6 +5,6 @@ import { default as factory } from './user.service';
 
 export const userModule: IModule =
                  angular.module ( 'app.user', [] )
-                        .factory( '$user', factory )
+                        .service( '$user', factory )
                         .controller ( { UserController } )
 ;
