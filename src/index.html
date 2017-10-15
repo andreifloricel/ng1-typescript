@@ -27,23 +27,12 @@
 </div>
 <ul class="list-unstyled" ng-controller="UserController as $ctrl">
     <li><strong>ngRepeat</strong></li>
-    <li ng-repeat="user in $ctrl.users"
+    <li ng-repeat="user in $ctrl.users | limitTo : 5 | orderBy : 'firstName' : true"
         ng-click="$ctrl.delete ($index)"
         class="user"
         ng-class-even="'even'"
         ng-class-odd="'odd'">
             [{{user.age}}] {{user.firstName}} {{user.lastName}}
-        <!--
-        <div class="panel-footer">
-            <div>Index:= <span style="margin-left:2em">  {{$index}}</span></div>
-            <div>isFirst:= <span style="margin-left:2em"> {{$first}}</span></div>
-            <div>isMiddle:= <span style="margin-left:1em">{{$middle}}</span></div>
-            <div>isLast:= <span style="margin-left:2em"> {{$last}}</span></div>
-            <div>isEven:= <span style="margin-left:2em"> {{$even}}</span></div>
-            <div>isOdd:= <span style="margin-left:2em"> {{$odd}}</span></div>
-        </div>
-        -->
-
     </li>
 </ul>
 
