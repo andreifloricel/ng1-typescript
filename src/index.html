@@ -26,17 +26,17 @@
 
 </div>
 <ul class="list-unstyled" ng-controller="UserController as $ctrl">
-    <li><strong>date</strong></li>
-    <li>{{$ctrl.today}}</li>
-    <li>{{$ctrl.today | date }}</li>
-    <li>{{$ctrl.today | date : 'longDate' }}</li>
-    <li>{{$ctrl.today | date : 'EEEE, d. MMMM yyyy - HH:mm'}}</li>
+    <li><strong>number</strong></li>
+    <li>{{123.3456 }}</li>
+    <li>{{123.3456 | number }}</li>
+    <li>{{123.3456 | number : 1 }}</li>
+    <li>{{123.3456 | number : 2 }}</li>
+    <li>{{123.3456 | number : 3 }}</li>
 
     <li><br><strong>Timezone</strong></li>
-
-    <li>{{$ctrl.today | date : 'EEEE, d. MMMM yyyy - HH:mm' : 'UTC'}}</li>
-    <li>{{$ctrl.today | date : 'EEEE, d. MMMM yyyy - HH:mm' : 'GMT+0200'}}</li>
-    <li>{{$ctrl.today | date : 'EEEE, d. MMMM yyyy - HH:mm' : 'GMT-0500'}}</li>
+    <li>{{123.3456 | currency }}</li>
+    <li>{{123.3456 | currency : '$' }}</li>
+    <li>{{123.3456 | currency : '$' : 3 }}</li>
 
 </ul>
 
