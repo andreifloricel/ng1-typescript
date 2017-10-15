@@ -32,7 +32,8 @@ export interface IUserService {
     start: Date;
     last: Date;
     users: IUser[];
-    addUser ( user?: IUser ) : IPromise<number | void>
+    addUser ( user?: IUser ) : IPromise<number | void>;
+    refresh (): void;
 }
 
 export default class UserService implements IUserService {
@@ -47,6 +48,28 @@ export default class UserService implements IUserService {
 
     constructor ( private $cookies: ICookiesService, private $http: IHttpService ) {
         this.init ();
+    }
+
+    public refresh( ) {
+        this.loadUsers();
+    }
+
+    public addUser ( user?: IUser ) : IPromise<number | void> {
+        const payload: IUser = user || <IUser> {
+            firstname: 'saban',
+            lastname: 'uenlue',
+            city: 'dorsten',
+        };
+        const endpoint: string = 'http://rest-api.flexlab.de/index.php/api/user';
+        // post<T>(url: string, data: any, config?: IRequestShortcutConfig): IHttpPromise<T>;
+        const promise: IPromise<number | void> = this.$http.post<IUser> ( endpoint, payload )
+                                                     .then ( // IHttpResponse<IUser>
+                                                         result => this.users.push(result.data),
+                                                         ( error ) => {
+                                                             console.error ( error );
+                                                         }
+                                                     );
+        return promise;
     }
 
     private init (): any {
@@ -76,7 +99,8 @@ export default class UserService implements IUserService {
         const token: string = 'Saban Ünlü [netTrek]';
         const endpoint: string = 'http://rest-api.flexlab.de/index.php/api/user';
         const config: IRequestShortcutConfig = <IRequestShortcutConfig>{
-            params: {token}
+            params: {token},
+            cache: true
         };
 
         const promise: IPromise<void|IUser[]> = this.$http.get<IUser[]> ( endpoint, config )
@@ -86,24 +110,6 @@ export default class UserService implements IUserService {
                                   console.error ( error );
                               }
                           );
-        return promise;
-    }
-
-    public addUser ( user?: IUser ) : IPromise<number | void> {
-        const payload: IUser = user || <IUser> {
-            firstname: 'saban',
-            lastname: 'uenlue',
-            city: 'dorsten',
-        };
-        const endpoint: string = 'http://rest-api.flexlab.de/index.php/api/user';
-        // post<T>(url: string, data: any, config?: IRequestShortcutConfig): IHttpPromise<T>;
-        const promise: IPromise<number | void> = this.$http.post<IUser> ( endpoint, payload )
-                                                    .then ( // IHttpResponse<IUser>
-                                                        result => this.users.push(result.data),
-                                                        ( error ) => {
-                                                            console.error ( error );
-                                                        }
-                                                    );
         return promise;
     }
 
