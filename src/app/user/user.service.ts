@@ -108,16 +108,17 @@ export default class UserService implements IUserService {
         const token: string = 'Saban Ünlü [netTrek]';
         const endpoint: string = 'http://rest-api.flexlab.de/index.php/api/user';
         const config: IRequestShortcutConfig = <IRequestShortcutConfig>{
-            cache: this.userCache
+            /* defined in module
+            headers: {
+                'Authorization': 'Bearer ' + window.btoa( 'netTrek' )
+            }
+            */
         };
-        console.log ( this.userCache );
-        console.log ( this.userCache.info() );
+
         const promise: IPromise<void|IUser[]> = this.$http.get<IUser[]> ( endpoint, config )
                           .then ( // IHttpResponse<IUser[]>
                               (result) => {
                                   this.users = result.data;
-                                  console.log ( this.userCache.info() );
-                                  console.log ( this.userCache.get( endpoint ) );
                               },
                               ( error ) => {
                                   console.error ( error );
