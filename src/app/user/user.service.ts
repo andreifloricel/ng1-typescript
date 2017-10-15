@@ -32,6 +32,7 @@ export interface IUserService {
     start: Date;
     last: Date;
     users: IUser[];
+    addUser ( user?: IUser ) : IPromise<void|IUser[]>
 }
 
 export default class UserService implements IUserService {
@@ -66,15 +67,39 @@ export default class UserService implements IUserService {
     }
 
     private loadUsers (): IPromise<void|IUser[]> {
-        // get<T>(url: string, config?: IRequestShortcutConfig): IHttpPromise<T>;
-        const promise: IPromise<void|IUser[]> = this.$http.get<IUser[]> ( 'mock/data.json' )
+
+        const user: IUser = <IUser> {
+            firstname: 'saban',
+            lastname: 'uenlue',
+            city: 'dorsten',
+        };
+        const endpoint: string = 'http://rest-api.flexlab.de/index.php/api/user';
+
+        const promise: IPromise<void|IUser[]> = this.$http.get<IUser[]> ( endpoint )
                           .then ( // IHttpResponse<IUser[]>
                               result => this.users = result.data,
                               ( error ) => {
                                   console.error ( error );
                               }
                           );
-        console.log ( promise );
+        return promise;
+    }
+
+    public addUser ( user?: IUser ) : IPromise<number | void> {
+        const payload: IUser = user || <IUser> {
+            firstname: 'saban',
+            lastname: 'uenlue',
+            city: 'dorsten',
+        };
+        const endpoint: string = 'http://rest-api.flexlab.de/index.php/api/user';
+        // post<T>(url: string, data: any, config?: IRequestShortcutConfig): IHttpPromise<T>;
+        const promise: IPromise<number | void> = this.$http.post<IUser> ( endpoint, payload )
+                                                    .then ( // IHttpResponse<IUser>
+                                                        result => this.users.push(result.data),
+                                                        ( error ) => {
+                                                            console.error ( error );
+                                                        }
+                                                    );
         return promise;
     }
 

@@ -4,6 +4,7 @@
  */
 import { IOnInit } from 'angular';
 import { IUserService } from './user.service';
+import IUser from './user.interface';
 
 export default class UserController implements IOnInit{
 
@@ -11,6 +12,10 @@ export default class UserController implements IOnInit{
     search: {firstname?: string, lastname?: string} = {};
 
     constructor ( public $user: IUserService ) {
+        /*
+        $user.addUser( <IUser>{ firstname: `sue${this.today.getSeconds()}`,
+                                lastname: `sue${this.today.getDate()}` } )
+        */
     }
 
     $onInit (): void {
