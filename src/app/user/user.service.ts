@@ -61,6 +61,8 @@ export default class UserService implements IUserService {
         // this.$cookies.putObject(  'userData' , {username:'saban', lastVisit:this.last} );
         // this.$cookies.remove( 'last' );
 
+        this.loadUsers();
+
     }
 
     private loadUsers (): IPromise<void|IUser[]> {
@@ -72,7 +74,7 @@ export default class UserService implements IUserService {
                                   console.error ( error );
                               }
                           );
-
+        console.log ( promise );
         return promise;
     }
 
