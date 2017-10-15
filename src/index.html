@@ -23,11 +23,15 @@
 <div class="jumbotron" ng-controller="BindingController as $ctrl">
     <h1 class="header" ng-cloak="">{{$ctrl.name}}</h1>
 
-    <img ng-src="{{$ctrl.imgUrl}}" alt="Description" class="img-thumbnail">
-    <p class="lead">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi beatae blanditiis commodi culpa, doloremque est eveniet laboriosam nihil, nisi porro quas quasi quis reiciendis veritatis! Delectus incidunt nulla vel?
-    </p>
-    <a ng-href="{{$ctrl.link}}">netTrek</a>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ng-model="$ctrl.checked"> show img?
+        </label>
+    </div>
+
+    <img ng-src="{{$ctrl.imgUrl}}"
+         ng-if="$ctrl.checked"
+         alt="Description" class="img-thumbnail">
 
 
 </div>

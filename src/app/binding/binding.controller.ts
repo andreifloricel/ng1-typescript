@@ -10,7 +10,7 @@ export default class BindingController implements IOnInit{
     name: string;
 
     imgUrl: string = `http://www.nettrek.de/wp-content/uploads/2015/03/nettrek_gf_saban_uenlue-300x199.jpg`;
-    link: string = 'http://netTrek.de';
+    checked: boolean = true;
 
     constructor ( private author: string ) {
 
