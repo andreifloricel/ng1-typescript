@@ -36,7 +36,7 @@
             <input type="text" class="form-control" ng-model="$ctrl.search.lastName">
         </div>
     </li>
-    <li ng-repeat="user in $ctrl.users | filter : $ctrl.search "
+    <li ng-repeat="user in $ctrl.$user.users | filter : $ctrl.search "
         ng-click="$ctrl.delete ($index)"
         class="user row"
         ng-class-even="'even'"
