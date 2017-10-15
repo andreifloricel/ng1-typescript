@@ -23,6 +23,17 @@
 <div class="jumbotron" ng-controller="BindingController as $ctrl">
     <h1 class="header" ng-cloak="">{{$ctrl.name}}</h1>
 
+    <div class="progress">
+        <div class="progress-bar" ng-style="{ 'width': $ctrl.progress +'%' }">
+            <span class="sr-only">{{$ctrl.progress}}% Complete</span>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <input type="number" class="form-control" ng-model="$ctrl.progress">
+        <div class="input-group-addon">%</div>
+    </div>
+
 
     <div class="btn-toolbar">
         <div class="btn-group">

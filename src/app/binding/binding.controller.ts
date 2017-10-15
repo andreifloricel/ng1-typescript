@@ -10,6 +10,7 @@ export default class BindingController implements IOnInit{
     name: string;
     checked: boolean = false;
     textClass: string = 'text-left';
+    progress: number = 0;
 
     constructor ( private author: string ) {
 
