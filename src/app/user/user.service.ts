@@ -3,7 +3,10 @@
  * Copyright (c) 2017 by netTrek GmbH & Co. KG
  */
 import IUser from './user.interface';
-import { IHttpPromise, IHttpResponse, IHttpService, IPromise, IRequestConfig, IRequestShortcutConfig } from 'angular';
+import {
+    ICacheFactoryService, ICacheObject, IHttpPromise, IHttpResponse, IHttpService, IPromise, IRequestConfig,
+    IRequestShortcutConfig
+} from 'angular';
 
 interface ICookiesOptions {
     path?: string;
@@ -39,14 +42,20 @@ export interface IUserService {
 export default class UserService implements IUserService {
 
     static $inject: string[] = [ '$cookies',
-                                 '$http'
+                                 '$http',
+                                 '$cacheFactory'
     ];
 
     start: Date;
     last: Date;
     users: IUser[];
 
-    constructor ( private $cookies: ICookiesService, private $http: IHttpService ) {
+    private userCache: ICacheObject;
+
+    constructor ( private $cookies: ICookiesService,
+                  private $http: IHttpService,
+                  private $cacheFactory: ICacheFactoryService
+    ) {
         this.init ();
     }
 
@@ -58,7 +67,7 @@ export default class UserService implements IUserService {
         const payload: IUser = user || <IUser> {
             firstname: 'saban',
             lastname: 'uenlue',
-            city: 'dorsten',
+            city: 'dorsten'
         };
         const endpoint: string = 'http://rest-api.flexlab.de/index.php/api/user';
         // post<T>(url: string, data: any, config?: IRequestShortcutConfig): IHttpPromise<T>;
@@ -73,7 +82,7 @@ export default class UserService implements IUserService {
     }
 
     private init (): any {
-
+        this.userCache = this.$cacheFactory ( 'userCache' );
         const lastDate: string | undefined = this.$cookies.get ( 'last' );
         this.last                          = this.start = new Date ();
         if ( lastDate !== undefined ) {
@@ -94,18 +103,22 @@ export default class UserService implements IUserService {
         const user: IUser = <IUser> {
             firstname: 'saban',
             lastname: 'uenlue',
-            city: 'dorsten',
+            city: 'dorsten'
         };
         const token: string = 'Saban Ünlü [netTrek]';
         const endpoint: string = 'http://rest-api.flexlab.de/index.php/api/user';
         const config: IRequestShortcutConfig = <IRequestShortcutConfig>{
-            params: {token},
-            cache: true
+            cache: this.userCache
         };
-
+        console.log ( this.userCache );
+        console.log ( this.userCache.info() );
         const promise: IPromise<void|IUser[]> = this.$http.get<IUser[]> ( endpoint, config )
                           .then ( // IHttpResponse<IUser[]>
-                              result => this.users = result.data,
+                              (result) => {
+                                  this.users = result.data;
+                                  console.log ( this.userCache.info() );
+                                  console.log ( this.userCache.get( endpoint ) );
+                              },
                               ( error ) => {
                                   console.error ( error );
                               }
