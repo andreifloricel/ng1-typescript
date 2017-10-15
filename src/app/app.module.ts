@@ -1,6 +1,6 @@
 
 import * as angular from 'angular';
-import { IModule } from 'angular';
+import { IDocumentService, ILogProvider, ILogService, IModule, IWindowService } from 'angular';
 import { bindingModule } from './binding/binding.module';
 import "angularI18n";
 import "ngSanitize";
@@ -9,11 +9,18 @@ import { userModule } from './user/user.module';
 export const appModule: IModule =
   angular.module('app', [ bindingModule.name, userModule.name, 'ngSanitize' ])
 
-         .run ( ( author: string ) => {
-             // console.log ( 'run app', author );
+         .run ( ( author: string,
+                  $log: ILogService,
+                  $window: IWindowService,
+                  $document: IDocumentService ) => {
+
+             $log.log( $window, $document );
+
+             $document.find( 'body').css ( 'background-color', 'gray');
+
          })
 
-         .config ( () => {
-              // console.log ( 'config app' );
+         .config ( ( $logProvider: ILogProvider) => {
+             $logProvider.debugEnabled( false );
          })
 ;
