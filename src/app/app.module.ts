@@ -2,6 +2,7 @@
 import * as angular from 'angular';
 import { IModule } from 'angular';
 import { bindingModule } from './binding/binding.module';
+import "angularI18n";
 import "ngSanitize";
 import { userModule } from './user/user.module';
 

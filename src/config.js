@@ -7,6 +7,7 @@ System.config({
         },
         "angular": { main: "index.js", defaultExtension: "js" },
         "ngSanitize": { main: "index.js", defaultExtension: "js" },
+        "angularI18n": { main: "angular-locale_de-de.js", defaultExtension: "js" }
     },
 
 
@@ -14,6 +15,7 @@ System.config({
         app: './',
         'angular': 'node_modules/angular/',
         'ngSanitize': 'node_modules/angular-sanitize/',
+        'angularI18n': 'node_modules/angular-i18n/',
         'text': 'node_modules/systemjs-plugin-text/text.js'
     },
     meta: {

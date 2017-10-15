@@ -9,6 +9,7 @@ import users from './user.data';
 export default class UserController implements IOnInit{
 
     users: IUser[] = [...users];
+    today: Date = new Date ();
 
     constructor () {}
 
