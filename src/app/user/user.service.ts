@@ -3,7 +3,7 @@
  * Copyright (c) 2017 by netTrek GmbH & Co. KG
  */
 import IUser from './user.interface';
-import { IHttpPromise, IHttpResponse, IHttpService, IRequestConfig } from 'angular';
+import { IHttpPromise, IHttpResponse, IHttpService, IPromise, IRequestConfig } from 'angular';
 
 interface ICookiesOptions {
     path?: string;
@@ -61,18 +61,11 @@ export default class UserService implements IUserService {
         // this.$cookies.putObject(  'userData' , {username:'saban', lastVisit:this.last} );
         // this.$cookies.remove( 'last' );
 
-        this.loadUsers ();
     }
 
-    private loadUsers (): any {
-        const config: IRequestConfig = {
-
-            url   : 'mock/data.json',
-            method: 'GET' //default
-
-        };
-
-        const promise = this.$http<IUser[]> ( config )
+    private loadUsers (): IPromise<void|IUser[]> {
+        // get<T>(url: string, config?: IRequestShortcutConfig): IHttpPromise<T>;
+        const promise: IPromise<void|IUser[]> = this.$http.get<IUser[]> ( 'mock/data.json' )
                           .then ( // IHttpResponse<IUser[]>
                               result => this.users = result.data,
                               ( error ) => {
