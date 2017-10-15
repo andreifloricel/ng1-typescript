@@ -23,49 +23,23 @@
 <div class="jumbotron" ng-controller="BindingController as $ctrl">
     <h1 class="header" ng-cloak="">{{$ctrl.name}}</h1>
 
-    <div class="progress">
+    <div class="progress" ng-hide="$ctrl.checked">
         <div class="progress-bar" ng-style="{ 'width': $ctrl.progress +'%' }">
             <span class="sr-only">{{$ctrl.progress}}% Complete</span>
         </div>
     </div>
 
-    <div class="input-group">
+    <div class="input-group" ng-show="$ctrl.checked">
         <input type="number" class="form-control" ng-model="$ctrl.progress">
         <div class="input-group-addon">%</div>
     </div>
 
-
-    <div class="btn-toolbar">
-        <div class="btn-group">
-            <a ng-click="$ctrl.textClass='text-left'"
-               ng-class="{selected: $ctrl.textClass==='text-left'}"
-               class="btn" href="#"><i class="glyphicon glyphicon-align-left"></i></a>
-            <a ng-click="$ctrl.textClass='text-center'"
-               ng-class="{selected: $ctrl.textClass==='text-center'}"
-               class="btn" href="#"><i class="glyphicon glyphicon-align-center"></i></a>
-            <a ng-click="$ctrl.textClass='text-right'"
-               ng-class="{selected: $ctrl.textClass==='text-right'}"
-               class="btn" href="#"><i class="glyphicon glyphicon-align-right"></i></a>
-        </div>
-    </div>
-
-    <p ng-class="$ctrl.textClass" class="lead">
-        <strong >Hello World</strong>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    </p>
-
-<!--
     <div class="checkbox">
         <label>
-            <input type="checkbox" ng-model="$ctrl.checked"> red font-color?
+            <input type="checkbox" ng-model="$ctrl.checked"> show input fied
         </label>
     </div>
 
-    <p ng-class="[$ctrl.textClass, {red: $ctrl.checked}]" class="lead">
-        <strong>Hello World</strong>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    </p>
--->
 
 </div>
 
