@@ -23,22 +23,11 @@
 <div class="jumbotron" ng-controller="BindingController as $ctrl">
     <h1 class="header" ng-cloak="">{{$ctrl.name}}</h1>
 
-    <div class="progress" ng-hide="$ctrl.checked">
-        <div class="progress-bar" ng-style="{ 'width': $ctrl.progress +'%' }">
-            <span class="sr-only">{{$ctrl.progress}}% Complete</span>
-        </div>
-    </div>
-
-    <div class="input-group" ng-show="$ctrl.checked">
-        <input type="number" class="form-control" ng-model="$ctrl.progress">
-        <div class="input-group-addon">%</div>
-    </div>
-
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" ng-model="$ctrl.checked"> show input fied
-        </label>
-    </div>
+    <img ng-src="{{$ctrl.imgUrl}}" alt="Description" class="img-thumbnail">
+    <p class="lead">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi beatae blanditiis commodi culpa, doloremque est eveniet laboriosam nihil, nisi porro quas quasi quis reiciendis veritatis! Delectus incidunt nulla vel?
+    </p>
+    <a ng-href="{{$ctrl.link}}">netTrek</a>
 
 
 </div>
