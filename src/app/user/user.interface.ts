@@ -3,11 +3,12 @@
  * Copyright (c) 2017 by netTrek GmbH & Co. KG
  */
 export default interface IUser {
-    id: number;
-    firstName: string;
-    lastName: string;
-    gender: string;
-    age: number;
-    registered: any;
-    email: string;
+    id: string;
+    firstname: string;
+    lastname: string;
+    birthday: string;
+    street?: any;
+    street_no?: any;
+    zip?: any;
+    city?: any;
 }

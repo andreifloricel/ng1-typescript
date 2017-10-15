@@ -14,7 +14,7 @@ export const appModule: IModule =
                   $window: IWindowService,
                   $document: IDocumentService ) => {
 
-             $log.log( $window, $document );
+             // $log.log( $window, $document );
 
              $document.find( 'body').css ( 'background-color', 'gray');
 

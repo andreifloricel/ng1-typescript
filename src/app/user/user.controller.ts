@@ -8,11 +8,9 @@ import { IUserService } from './user.service';
 export default class UserController implements IOnInit{
 
     today: Date = new Date ();
-    search: {firstName?: string, lastName?: string} = {};
+    search: {firstname?: string, lastname?: string} = {};
 
     constructor ( public $user: IUserService ) {
-        console.log ( $user.last);
-        console.log ( $user.start );
     }
 
     $onInit (): void {

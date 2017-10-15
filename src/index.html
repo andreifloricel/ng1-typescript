@@ -29,11 +29,11 @@
     <li class="row">
         <div class="col-xs-6 input-group" style="float: left;">
             <span class="input-group-addon">firstName</span>
-            <input type="text" class="form-control" ng-model="$ctrl.search.firstName">
+            <input type="text" class="form-control" ng-model="$ctrl.search.firstname">
         </div>
         <div class="col-xs-6 input-group">
             <span class="input-group-addon">lastName</span>
-            <input type="text" class="form-control" ng-model="$ctrl.search.lastName">
+            <input type="text" class="form-control" ng-model="$ctrl.search.lastname">
         </div>
     </li>
     <li ng-repeat="user in $ctrl.$user.users | filter : $ctrl.search "
@@ -41,8 +41,8 @@
         class="user row"
         ng-class-even="'even'"
         ng-class-odd="'odd'">
-        <span class="col-xs-6"><i class="glyphicon glyphicon-user"></i> {{user.firstName}}</span>
-        <span class="col-xs-6">{{user.lastName}}</span>
+        <span class="col-xs-6"><i class="glyphicon glyphicon-user"></i> {{user.firstname}}</span>
+        <span class="col-xs-6">{{user.lastname}}</span>
     </li>
 
 </ul>
