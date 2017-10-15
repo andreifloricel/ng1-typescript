@@ -10,6 +10,7 @@ export default class UserController implements IOnInit{
 
     users: IUser[] = [...users];
     today: Date = new Date ();
+    search: string;
 
     constructor () {}
 
