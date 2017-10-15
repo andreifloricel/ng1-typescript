@@ -10,7 +10,10 @@ export default class UserController implements IOnInit{
     today: Date = new Date ();
     search: {firstName?: string, lastName?: string} = {};
 
-    constructor ( public $user: IUserService ) {}
+    constructor ( public $user: IUserService ) {
+        console.log ( $user.last);
+        console.log ( $user.start );
+    }
 
     $onInit (): void {
     }
