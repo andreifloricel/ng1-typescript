@@ -1,4 +1,5 @@
 //main entry point
-import { appModule } from './app/app.module';
 
-console.log ( appModule.name );
+import { Car } from './app/Car';
+
+const car: Car = new Car ();
