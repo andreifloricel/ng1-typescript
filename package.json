@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && concurrently \"npm run node-sass\" \"npm run tsc:w\" \"npm run lite\"",
     "tsc": "tsc",
-    "tsc:w": "tsc -w",
+    "tsc:w": "tsc && tsc -w",
     "node-sass": "node-sass -o ./dist ./src && node-sass -w -o ./dist ./src",
     "lite": "lite-server"
   },
