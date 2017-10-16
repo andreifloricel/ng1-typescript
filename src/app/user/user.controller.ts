@@ -11,11 +11,14 @@ export default class UserController implements IOnInit{
     today: Date = new Date ();
     search: {firstname?: string, lastname?: string} = {};
 
-    constructor ( public $user: IUserService ) {
+    constructor ( public $user: IUserService, reverseFilter: Function ) {
+        console.log ( reverseFilter ( 'saban') );
         /*
         $user.addUser( <IUser>{ firstname: `sue${this.today.getSeconds()}`,
                                 lastname: `sue${this.today.getDate()}` } )
         */
+
+
     }
 
     $onInit (): void {
