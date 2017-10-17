@@ -13,20 +13,13 @@ export default class UserController implements IOnInit{
     doHover: {color: string} = {color: 'red'};
     
     constructor ( public $user: IUserService, reverseFilter: Function ) {
-        console.log ( reverseFilter ( 'saban') );
-        /*
-        $user.addUser( <IUser>{ firstname: `sue${this.today.getSeconds()}`,
-                                lastname: `sue${this.today.getDate()}` } )
-        */
-
-
     }
 
     $onInit (): void {
     }
 
-    delete ( ind: number ) {
-        this.$user.users.splice( ind, 1 );
+    delete ( user: IUser ) {
+        this.$user.users.splice( this.$user.users.indexOf(user), 1 );
     };
 
 }
