@@ -1,0 +1,26 @@
+<ul class="list-unstyled container">
+    <li class="row">
+    </li>
+    <li class="row">
+        <user-header title="'user list'" class="col-xs-11"></user-header>
+        <button class="btn btn-primary col-xs-1" ng-click="$ctrl.$user.refresh()"><i class="glyphicon glyphicon-refresh"></i></button>
+        <div class="col-xs-6 input-group" style="float: left;">
+            <span class="input-group-addon">firstName</span>
+            <input type="text" class="form-control" ng-model="$ctrl.search.firstname">
+        </div>
+        <div class="col-xs-6 col-xs-offset-6 input-group">
+            <span class="input-group-addon">lastName</span>
+            <input type="text" class="form-control" ng-model="$ctrl.search.lastname">
+        </div>
+    </li>
+    <li ng-repeat="user in $ctrl.$user.users | filter : $ctrl.search | limitTo : 8 : -8"
+        class="user row"
+        ng-class-even="'even'"
+        ng-class-odd="'odd'"
+        do-hover="$ctrl.doHover">
+        <user-name class="col-xs-12"
+                   user="user"
+                   delete="$ctrl.delete($event)"
+        ></user-name>
+    </li>
+</ul>

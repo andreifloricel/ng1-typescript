@@ -1,11 +1,11 @@
 import * as angular from 'angular';
 import "ngCookies"
 import { IHttpProvider, IHttpProviderDefaults, IModule } from 'angular';
-import { default as UserController } from './user.controller';
 import { default as UserService } from './user.service';
 import { utilsModule } from '../utils/utils.module';
 import { userHeaderModule } from './user-header/user-header.module';
 import { userNameModule } from './user-name/user.name.module';
+import { UserComponent } from './user.component';
 
 export const userModule: IModule =
                  angular.module ( 'app.user', [
@@ -23,5 +23,5 @@ export const userModule: IModule =
                             }
                         })
                         .service( '$user', UserService )
-                        .controller ( { UserController } )
+                        .component( 'user', UserComponent )
 ;
