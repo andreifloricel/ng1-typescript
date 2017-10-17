@@ -10,7 +10,8 @@ export default class UserController implements IOnInit{
 
     today: Date = new Date ();
     search: {firstname?: string, lastname?: string} = {};
-    clr: string = 'red';
+    doHover: {color: string} = {color: 'red'};
+    
     constructor ( public $user: IUserService, reverseFilter: Function ) {
         console.log ( reverseFilter ( 'saban') );
         /*

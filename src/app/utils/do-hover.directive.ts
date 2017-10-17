@@ -5,27 +5,24 @@
 import { IAttributes, IAugmentedJQuery, IDirective, IDirectiveLinkFn, IScope } from 'angular';
 
 interface IDoHoverScope extends IScope {
-    doHover: string;
+    doHover: {color: string};
 }
 
 export function doHover ( /*injectable*/ ): IDirective {
 
-    const scope = { doHover: '@' };
+    const scope = {
+        doHover: '<',
+    };
 
     const link: IDirectiveLinkFn = ( scope: IDoHoverScope,
                              elem: IAugmentedJQuery,
-                             attrs: IAttributes ): void => {
+                             attrs: IAttributes,
+                                     ...rest: any[] ): void => {
 
         const startColor: string = elem.css( 'color' );
-        /*
-        const unwatch: Function = scope.$watch<string>( attrs.doHover, ( colorAttr )=> {
-            color = scope.doHover || 'gree';
-            console.log ( 'new color', color,  );
-        } );
-        */
 
         elem.on ('mouseenter', function () {
-            elem.css( 'color', scope.doHover );
+            elem.css( 'color', scope.doHover.color );
         });
         elem.on ('mouseleave', function () {
             elem.css( 'color', startColor );
