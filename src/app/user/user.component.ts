@@ -1,16 +1,26 @@
-import { IComponentOptions } from 'angular';
+import { IComponentOptions, IOnInit, ITimeoutService } from 'angular';
 import { IUserService } from './user.service';
 import IUser from './user.interface';
 
 export const UserComponent: IComponentOptions = {
     template: require ('./user.template.html!text'),
-    controller: class UserController {
+    controller: class UserController implements IOnInit {
+
 
         today: Date = new Date ();
         search: {firstname?: string, lastname?: string} = {};
         doHover: {color: string} = {color: 'red'};
 
-        constructor ( public $user: IUserService, reverseFilter: Function ) {
+        title: string = 'my user List';
+
+        constructor ( public $user: IUserService,
+                      private $timeout: ITimeoutService ) {
+        }
+
+        $onInit (): void {
+            this.$timeout ( ()=>{
+                this.title = 'user list'
+            } , 1000 );
         }
 
 
