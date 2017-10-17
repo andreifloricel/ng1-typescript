@@ -6,9 +6,16 @@
 
 import { IModule } from 'angular';
 import * as angular from 'angular';
+import IProvideService = angular.auto.IProvideService;
 
 export const sharedModule: IModule = angular.module( 'app.share', [] )
-    .config( () => {
+                                            
+    // .value( 'phone', 'ios')
+
+    .config( ( $provide: IProvideService ) => {
+
+        $provide.value( 'phone', 'ios');
+
         console.log ( 'config shared module' );
     })
 ;
