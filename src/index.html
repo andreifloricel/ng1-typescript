@@ -22,11 +22,24 @@
 
     <div class="jumbotron" ng-controller="BindingController as $ctrl">
         <h1>Hello World</h1>
+        <!--
         <p>{{$ctrl.getName( 'Name:= ')}}</p>
+        -->
         <p ng-bind-html="$ctrl.getName( 'Name: ')"></p>
+
+        <div class="input-group">
+            <span class="input-group-addon">Name:</span>
+            <input type="text" class="form-control"
+                   ng-model="$ctrl.name"
+                    ng-model-options="$ctrl.modelOpt"
+            >
+        </div>
+
+        <button class="btn btn-primary"
+                id="btn"
+                ng-click="$ctrl.onClick( 'cool', $event )">Hello</button>
     </div>
 
-    <button class="btn btn-primary" id="btn">Hello</button>
 
 </body>
 </html>

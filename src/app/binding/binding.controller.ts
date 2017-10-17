@@ -8,6 +8,13 @@ console.log ( 'BindingCtr loaded' );
 export default class BindingController implements IOnInit {
 
     name: string;
+    modelOpt: any = {
+        updateOn: 'default blur',
+        debounce: {
+            default: 500,
+            blur: 0
+        }
+    };
 
     constructor ( private author: string ) {
 
@@ -21,6 +28,11 @@ export default class BindingController implements IOnInit {
 
     getName ( prefix: string = '' ): string {
         return `<strong>${prefix}</strong><script>alert("hh")</script> ${this.name}`;
+    }
+
+    onClick ( msg:  string, event: Event ) {
+        console.log ( 'click', event );
+        this.name = this.name.toUpperCase();
     }
 
 }
