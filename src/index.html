@@ -26,7 +26,14 @@
 
 </div>
 
-<user-header></user-header>
+<div class="col-xs-12" ng-init="header='überschrift'">
+    <div class="input-group">
+        <span class="input-group-addon">header</span>
+        <input type="text" class="form-control" ng-model="header">
+    </div>
+    <user-header title="header"></user-header>
+</div>
+
 
 <ul class="list-unstyled container" ng-controller="UserController as $ctrl">
     <li class="row">
