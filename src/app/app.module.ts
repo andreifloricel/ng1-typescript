@@ -4,5 +4,16 @@
  */
 import { IModule } from 'angular';
 import * as angular from 'angular';
+import { bindingModule } from './binding/binding.module';
 
-export const appModule: IModule   = angular.module( 'app', [] );
+export const appModule: IModule   =
+                 angular.module( 'app', [
+                     bindingModule.name
+                 ] )
+                     .run ( () => {
+                         console.log ( 'app is running');
+                     })
+                     .config ( () => {
+                         console.log ( 'config app module');
+                     })
+;
