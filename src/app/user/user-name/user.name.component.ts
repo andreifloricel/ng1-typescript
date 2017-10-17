@@ -1,4 +1,4 @@
-import { IComponentOptions, IOnInit } from 'angular';
+import { IComponentOptions, IOnDestroy, IOnInit } from 'angular';
 import IUser from '../user.interface';
 
 export const UserNameComponent: IComponentOptions = {
@@ -8,13 +8,17 @@ export const UserNameComponent: IComponentOptions = {
         delete: '&'
     },
     require: { userCtrl: '^user' },
-    controller: class UserNameController implements IOnInit{
+    controller: class UserNameController implements IOnInit, IOnDestroy {
 
         user : IUser;
         userCtrl: any;
         
         $onInit (): void {
             // console.log ( this.userCtrl ); //avoid because ob ng2+ - use & @Output
+        }
+
+        $onDestroy (): void {
+            console.log ( 'destroying component for ', this.user );
         }
     }
 };
