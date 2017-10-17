@@ -10,6 +10,7 @@ System.config({
     map: {
         app: './',
         'angular': 'node_modules/angular/angular.js',
+        'ngSanitize': 'node_modules/angular-sanitize/angular-sanitize.js',
         'text': 'node_modules/systemjs-plugin-text/text.js'
     },
     meta: {

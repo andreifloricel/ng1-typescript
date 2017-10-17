@@ -1,24 +1,23 @@
-/**
- * File created by suenlue on 17.10.17.
- * Copyright (c) 2017 by netTrek GmbH & Co. KG
- */
-
 import * as angular from 'angular';
-import { IModule } from 'angular';
+import { IControllerProvider, IModule } from 'angular';
 import { sharedModule } from './shared/shared.module';
-
-const saban: string = 'saban';
+import BindingController from './binding.controller';
+import MsgController from './msg.controller';
 
 
 export const bindingModule: IModule = angular.module( 'app.binding' , [ sharedModule.name ] )
-    .config( () => {
+
+
+     // .controller({ BindingController }  )
+
+     .config( ( $controllerProvider: IControllerProvider) => {
         console.log ( 'config binding module' );
+         $controllerProvider.register('BindingController', BindingController );
     })
-    .run( ( car: string ) => {
-        console.log ( 'binding is running', car );
+    .run( ( ) => {
+        console.log ( 'binding is running' );
     })
 
-    .constant( 'author', 'saban uenlue')
-    .value( {saban: 'testing'} )
-    .value( 'users', ['saban',  'uenlue'] )
+    .constant( 'author', 'uenlue')
+
 ;

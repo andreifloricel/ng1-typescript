@@ -14,8 +14,7 @@ export const sharedModule: IModule = angular.module( 'app.share', [] )
 
     .config( ( $provide: IProvideService ) => {
 
-        $provide.value( 'phone', 'ios');
-
-        console.log ( 'config shared module' );
+        // $provide.value( 'phone', 'ios');
+        // console.log ( 'config shared module' );
     })
 ;

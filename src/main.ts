@@ -2,11 +2,12 @@
 
 import { appModule } from './app/app.module';
 import * as angular from 'angular';
+import 'ngSanitize';
 
-angular.element( 'document' ).ready(
+angular.element( document ).ready(
     () => {
         console.log ( 'dom is ready' );
-        angular.bootstrap( 'document',
+        angular.bootstrap( document,
             [ appModule.name ] )
     }
 );
