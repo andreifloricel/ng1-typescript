@@ -14,7 +14,7 @@ export const UserNameComponent: IComponentOptions = {
         userCtrl: any;
         
         $onInit (): void {
-            console.log ( this.userCtrl ); //avoid because ob ng2+ - use & @Output
+            // console.log ( this.userCtrl ); //avoid because ob ng2+ - use & @Output
         }
     }
 };
