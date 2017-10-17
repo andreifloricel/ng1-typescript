@@ -1,4 +1,4 @@
-import { IComponentOptions } from 'angular';
+import { IComponentOptions, IOnInit } from 'angular';
 import IUser from '../user.interface';
 
 export const UserNameComponent: IComponentOptions = {
@@ -7,7 +7,14 @@ export const UserNameComponent: IComponentOptions = {
         user: '<',
         delete: '&'
     },
-    controller: class UserNameController {
+    require: { userCtrl: '^user' },
+    controller: class UserNameController implements IOnInit{
+
         user : IUser;
+        userCtrl: any;
+        
+        $onInit (): void {
+            console.log ( this.userCtrl ); //avoid because ob ng2+ - use & @Output
+        }
     }
 };
