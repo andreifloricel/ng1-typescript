@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>msg</title>
     <link rel="stylesheet" href="../dist/style.css">
+    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
 </head>
 
 <body class="container" >
@@ -20,25 +21,47 @@
         })
     </script>
 
-    <div class="jumbotron" ng-controller="BindingController as $ctrl">
-        <h1>Hello World</h1>
-        <!--
-        <p>{{$ctrl.getName( 'Name:= ')}}</p>
-        -->
+    <div class="jumbotron"
+         ng-controller="BindingController as $ctrl"
+         ng-class="{'yellow': $ctrl.checkYellow(), 'red': $ctrl.checked}"
+        >
+        <h1 ng-if="$ctrl.checked">Hello World</h1>
+
+        <img ng-src="http://cdn2.spiegel.de/{{$ctrl.imgFolder}}/{{$ctrl.imgFile}}" alt="" class="img-thumbnail">
+
+        <a ng-href="{{$ctrl.link}}" target="_blank">netTrek</a>
+
+        <div class="progress" ng-show="$ctrl.checked">
+            <div class="progress-bar" ng-style="{'width': $ctrl.progress+'%'}">
+                <span class="sr-only" ng-cloak="">{{$ctrl.progress}}% completed</span>
+            </div>
+        </div>
+
+        <p ng-cloak="">{{$ctrl.name}}</p>
+
         <p ng-bind-html="$ctrl.getName( 'Name: ')"></p>
 
         <div class="input-group">
             <span class="input-group-addon">Name:</span>
             <input type="text" class="form-control"
                    ng-model="$ctrl.name"
-                    ng-model-options="$ctrl.modelOpt"
+                   ng-paste="$ctrl.onPast( $event )"
             >
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"
+                       ng-model="$ctrl.checked"
+                       ng-change="$ctrl.cbChg ( $ctrl.checked )"> check me
+            </label>
         </div>
 
         <button class="btn btn-primary"
                 id="btn"
                 ng-click="$ctrl.onClick( 'cool', $event )">Hello</button>
     </div>
+
+
 
 
 </body>
