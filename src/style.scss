@@ -36,6 +36,12 @@ li.user {
   }
 }
 
+nav {
+  a.active {
+    text-decoration: underline;
+  }
+}
+
 user-header {
   h1 {
     display: inline;

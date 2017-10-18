@@ -10,15 +10,15 @@ export const UserHeaderComponet: IComponentOptions = {
         title : string;
 
         constructor () {
-            console.log ( 'bindings not available', this.title );
+            // console.log ( 'bindings not available', this.title );
         }
 
         $onInit (): void {
-            console.log ( 'bindings are ready', this.title );
+            // console.log ( 'bindings are ready', this.title );
         }
 
         $onChanges ( onChangesObj: IOnChangesObject ): void {
-            console.log ( onChangesObj );
+            // console.log ( onChangesObj );
         }
     }
 };

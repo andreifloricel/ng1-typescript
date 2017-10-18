@@ -18,9 +18,11 @@ export const UserComponent: IComponentOptions = {
         }
 
         $onInit (): void {
+            /*
             this.$timeout ( ()=>{
                 this.title = 'user list'
             } , 1000 );
+            */
         }
 
 

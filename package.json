@@ -29,6 +29,7 @@
     "typescript": "^2.5.3"
   },
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.10",
     "angular": "^1.6.6",
     "angular-cookies": "^1.6.6",
     "angular-i18n": "^1.6.6",

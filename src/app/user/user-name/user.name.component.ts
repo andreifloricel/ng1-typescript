@@ -18,7 +18,7 @@ export const UserNameComponent: IComponentOptions = {
         }
 
         $onDestroy (): void {
-            console.log ( 'destroying component for ', this.user );
+            // console.log ( 'destroying component for ', this.user );
         }
     }
 };
