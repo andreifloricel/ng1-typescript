@@ -12,6 +12,7 @@ export default class BindingController implements IOnInit {
     link: string = 'http://netTrek.de';
 
     switchVal: string = 'edit';
+    color: string = 'red';
 
     progress: number = 22;
     name: string;

@@ -3,7 +3,6 @@
  * Copyright (c) 2017 by netTrek GmbH & Co. KG
  */
 import { IUser } from './user.interface';
-import users from './user.data';
 import {
     ICacheFactoryService, ICacheObject, IHttpService, IPromise, IRequestConfig, IRequestShortcutConfig,
     ITimeoutService
@@ -31,7 +30,7 @@ export default class UserService implements IUserService {
                 this.users.push( result.data );
             },
             ( error ) => {
-                console.log ( 'err', error );
+                // console.log ( 'err', error );
             }
         );
         
@@ -40,8 +39,8 @@ export default class UserService implements IUserService {
     private init () {
 
         this.userCache = this.$cacheFactory ( 'userCache' );
-        console.log ( this.userCache );
-        console.log ( this.userCache.info() );
+        // console.log ( this.userCache );
+        // console.log ( this.userCache.info() );
         this.loadUsers();
         // this.getUserById( '90');
         /*
@@ -58,19 +57,19 @@ export default class UserService implements IUserService {
             // params: { token },
             cache: this.userCache,
             headers: {
-                'Authorization': 'Bearer ' + window.btoa( 'netTrek' );
+                'Authorization': 'Bearer ' + window.btoa( 'netTrek' )
             }
         };
 
         const promise: IPromise<void|IUser[]> = this.$http.get<IUser[]>( this.restEndpoint, config )
             .then( (response) => {
                 this.users = response.data;
-                // console.log ( 'loadedUser', response );
-                console.log ( this.userCache.info() );
-                console.log ( this.userCache.get( this.restEndpoint) );
+                // // console.log ( 'loadedUser', response );
+                // console.log ( this.userCache.info() );
+                // console.log ( this.userCache.get( this.restEndpoint) );
             },
             ( error )=>{
-                console.log ( error );
+                // console.log ( error );
             });
 
         return promise;
@@ -81,10 +80,10 @@ export default class UserService implements IUserService {
         const promise: IPromise<void|IUser> = this.$http.get<IUser>( this.restEndpoint + '/' + id )
                                                     .then( (response) => {
                                                             this.selecterUser = response.data;
-                                                            console.log ( this.selecterUser );
+                                                            // console.log ( this.selecterUser );
                                                         },
                                                         ( error )=>{
-                                                            console.log ( error );
+                                                            // console.log ( error );
                                                         });
 
         return promise;
