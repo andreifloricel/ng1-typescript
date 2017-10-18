@@ -5,5 +5,10 @@ export const ContactFormComponent: IComponentOptions = {
     bindings: {to: '<'},
     controller: class ContactFormController {
         to: string;
+        formData: {firstname?: string, lastname?: string} = {};
+        send () {
+            console.log ( 'sending', this.formData );
+        }
+
     }
 };

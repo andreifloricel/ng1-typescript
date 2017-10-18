@@ -62,3 +62,12 @@ user-header {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+
+input.ng-touched.ng-valid, input.ng-dirty.ng-valid{
+  background: lightgreen;
+}
+
+input.ng-touched.ng-invalid,  input.ng-dirty.ng-invalid {
+  background: #ff705e;
+}
