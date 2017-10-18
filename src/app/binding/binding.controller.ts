@@ -11,6 +11,8 @@ export default class BindingController implements IOnInit {
     imgFile: string = 'image-881881-galleryV9-htln-881881.jpg';
     link: string = 'http://netTrek.de';
 
+    switchVal: string = 'edit';
+
     progress: number = 22;
     name: string;
     checked: boolean = false;

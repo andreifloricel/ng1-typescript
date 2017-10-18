@@ -11,7 +11,7 @@
 
     <script src="../node_modules/systemjs/dist/system.js"></script>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="javascripts/bootstrap.js"></script>
 
     <script>
         System.import ('./config.js').then (function () {
@@ -55,11 +55,35 @@
                        ng-change="$ctrl.cbChg ( $ctrl.checked )"> check me
             </label>
         </div>
-
         <button class="btn btn-primary"
                 id="btn"
                 ng-click="$ctrl.onClick( 'cool', $event )">Hello</button>
     </div>
+
+    <div ng-controller="UserController as $ctrl">
+
+        <ul class="list-unstyled">
+            <!--
+                        <li>{{123.45678}}</li>
+                        <li>{{123.45678 | number}}</li>
+                        <li>{{123.45678 | number : 4}}</li>
+                        <li>{{123.45678}}</li>
+                        <li>{{123.45678 | currency}}</li>
+                        <li>{{123.45678 | currency : 'EURO'}}</li>
+
+                        <li>{{$ctrl.now}}</li>
+                        <li>{{$ctrl.now | date }}</li>
+                        <li>{{$ctrl.now | date : 'medium'  : 'UTC'}}</li>
+                        -->
+            <li ng-repeat="user in $ctrl.users | limitTo : 3 | orderBy : 'lastName' : true "
+                ng-class-odd="'odd'"
+                ng-class-even="'even'"
+            >
+                <i class="glyphicon glyphicon-user"></i> {{user.firstName}} {{user.lastName }}
+            </li>
+        </ul>
+    </div>
+
 
 
 

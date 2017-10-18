@@ -3,6 +3,7 @@
 import { appModule } from './app/app.module';
 import * as angular from 'angular';
 import 'ngSanitize';
+import 'angularI18n';
 
 angular.element( document ).ready(
     () => {

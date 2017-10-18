@@ -6,11 +6,14 @@ import { IModule } from 'angular';
 import * as angular from 'angular';
 import { bindingModule } from './binding/binding.module';
 import IInjectorService = angular.auto.IInjectorService;
+import { userModule } from './user/user.module';
+
 
 export const appModule: IModule   =
                  angular.module( 'app', [
                      'ngSanitize',
-                     bindingModule.name
+                     bindingModule.name,
+                     userModule.name
                  ] )
                      .run ( ( author: string ) => {
                          console.log ( 'app is running', author );

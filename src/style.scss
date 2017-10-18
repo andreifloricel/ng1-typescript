@@ -8,6 +8,14 @@ app-binding {
   margin-bottom: 10px;
 }
 
+.even {
+  background-color: #4cae4c;
+}
+
+.odd {
+  background-color:#5cb85c;
+}
+
 div.jumbotron {
   &.yellow {
     background-color: yellow;
