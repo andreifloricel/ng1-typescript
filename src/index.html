@@ -4,88 +4,98 @@
     <meta charset="UTF-8">
     <title>msg</title>
     <link rel="stylesheet" href="../dist/style.css">
-    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <style type="text/css">@charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-shim {
+        visibility: hidden;
+    }
+
+    .ng-anchor {
+        position: absolute;
+    }</style>
 </head>
 
-<body class="container" >
+<body class="container">
 
-    <script src="../node_modules/systemjs/dist/system.js"></script>
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="javascripts/bootstrap.js"></script>
+<script src="../node_modules/systemjs/dist/system.js"></script>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="javascripts/bootstrap.js"></script>
 
-    <script>
-        System.import ('./config.js').then (function () {
-            System.import ('app');
-        }).catch (function ( err ) {
-            console.error (err);
-        })
-    </script>
+<script>
+    System.import('./config.js').then(function () {
+        System.import('app');
+    }).catch(function (err) {
+        console.error(err);
+    })
+</script>
 
-    <div class="jumbotron"
-         ng-controller="BindingController as $ctrl"
-         ng-class="{'yellow': $ctrl.checkYellow(), 'red': $ctrl.checked}"
+<div class="jumbotron"
+     ng-controller="BindingController as $ctrl"
+     ng-class="{'yellow': $ctrl.checkYellow(), 'red': $ctrl.checked}"
+>
+    <h1 ng-if="$ctrl.checked">Hello World</h1>
+
+    <img ng-src="http://cdn2.spiegel.de/{{$ctrl.imgFolder}}/{{$ctrl.imgFile}}" alt="" class="img-thumbnail">
+
+    <a ng-href="{{$ctrl.link}}" target="_blank">netTrek</a>
+
+    <div class="progress" ng-show="$ctrl.checked">
+        <div class="progress-bar" ng-style="{'width': $ctrl.progress+'%'}">
+            <span class="sr-only" ng-cloak="">{{$ctrl.progress}}% completed</span>
+        </div>
+    </div>
+
+    <p ng-cloak="">{{$ctrl.name}}</p>
+
+    <p ng-bind-html="$ctrl.getName( 'Name: ')"></p>
+
+    <div class="input-group">
+        <span class="input-group-addon">Name:</span>
+        <input type="text" class="form-control"
+               ng-model="$ctrl.name"
+               ng-paste="$ctrl.onPast( $event )"
         >
-        <h1 ng-if="$ctrl.checked">Hello World</h1>
-
-        <img ng-src="http://cdn2.spiegel.de/{{$ctrl.imgFolder}}/{{$ctrl.imgFile}}" alt="" class="img-thumbnail">
-
-        <a ng-href="{{$ctrl.link}}" target="_blank">netTrek</a>
-
-        <div class="progress" ng-show="$ctrl.checked">
-            <div class="progress-bar" ng-style="{'width': $ctrl.progress+'%'}">
-                <span class="sr-only" ng-cloak="">{{$ctrl.progress}}% completed</span>
-            </div>
-        </div>
-
-        <p ng-cloak="">{{$ctrl.name}}</p>
-
-        <p ng-bind-html="$ctrl.getName( 'Name: ')"></p>
-
-        <div class="input-group">
-            <span class="input-group-addon">Name:</span>
-            <input type="text" class="form-control"
-                   ng-model="$ctrl.name"
-                   ng-paste="$ctrl.onPast( $event )"
-            >
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"
-                       ng-model="$ctrl.checked"
-                       ng-change="$ctrl.cbChg ( $ctrl.checked )"> check me
-            </label>
-        </div>
-        <button class="btn btn-primary"
-                id="btn"
-                ng-click="$ctrl.onClick( 'cool', $event )">Hello</button>
     </div>
-
-    <div ng-controller="UserController as $ctrl">
-
-        <ul class="list-unstyled">
-            <!--
-                        <li>{{123.45678}}</li>
-                        <li>{{123.45678 | number}}</li>
-                        <li>{{123.45678 | number : 4}}</li>
-                        <li>{{123.45678}}</li>
-                        <li>{{123.45678 | currency}}</li>
-                        <li>{{123.45678 | currency : 'EURO'}}</li>
-
-                        <li>{{$ctrl.now}}</li>
-                        <li>{{$ctrl.now | date }}</li>
-                        <li>{{$ctrl.now | date : 'medium'  : 'UTC'}}</li>
-                        -->
-            <li ng-repeat="user in $ctrl.users | limitTo : 3 | orderBy : 'lastName' : true "
-                ng-class-odd="'odd'"
-                ng-class-even="'even'"
-            >
-                <i class="glyphicon glyphicon-user"></i> {{user.firstName}} {{user.lastName }}
-            </li>
-        </ul>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"
+                   ng-model="$ctrl.checked"
+                   ng-change="$ctrl.cbChg ( $ctrl.checked )"> check me
+        </label>
     </div>
+    <button class="btn btn-primary"
+            id="btn"
+            ng-click="$ctrl.onClick( 'cool', $event )">Hello
+    </button>
+</div>
 
-
-
+<ul class="list-unstyled container" ng-controller="UserController as $ctrl">
+    <li class="row">
+        <div class="col-xs-6 input-group" style="float: left;">
+            <span class="input-group-addon">firstName</span>
+            <input type="text" class="form-control" ng-model="$ctrl.search.firstName">
+        </div>
+        <div class="col-xs-6 input-group">
+            <span class="input-group-addon">lastName</span>
+            <input type="text" class="form-control" ng-model="$ctrl.search.lastName">
+        </div>
+    </li>
+    <li class="row"
+            ng-repeat="user in $ctrl.users | filter : $ctrl.search"
+        ng-class-odd="'odd'"
+        ng-class-even="'even'"
+    >
+        <span class="col-xs-6"><i class="glyphicon glyphicon-user"></i> {{::user.firstName}}</span>
+        <span class="col-xs-6">{{::user.lastName}}</span>
+    </li>
+</ul>
 
 
 </body>

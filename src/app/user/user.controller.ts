@@ -8,6 +8,6 @@ import users from './user.data';
 export class UserController {
 
     now: Date = new Date ();
-
+    search: {firstName?: string, lastName?: string } = {};
     users: IUser[] = users;
 }
