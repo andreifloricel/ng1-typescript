@@ -36,6 +36,7 @@ export interface IUserService {
     last: Date;
     users: IUser[];
     addUser ( user?: IUser ) : IPromise<number | void>;
+    getUserById ( id: number ): IPromise<IHttpResponse<IUser>>;
     refresh (): void;
 }
 
@@ -61,6 +62,11 @@ export default class UserService implements IUserService {
 
     public refresh( ) {
         this.loadUsers();
+    }
+
+    getUserById ( id: number ): IPromise<IHttpResponse<IUser>> {
+        const endpoint: string = 'http://rest-api.flexlab.de/index.php/api/user';
+        return this.$http.get<IUser> ( endpoint + '/' + id );
     }
 
     public addUser ( user?: IUser ) : IPromise<number | void> {
@@ -97,6 +103,7 @@ export default class UserService implements IUserService {
         this.loadUsers();
 
     }
+
 
     private loadUsers (): IPromise<void|IUser[]> {
 
