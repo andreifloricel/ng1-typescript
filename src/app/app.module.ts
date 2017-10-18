@@ -10,7 +10,7 @@ import { homeModule } from './home/home.module';
 import { contactModule } from './contact/contact.module';
 import { homeState } from './home/home.routing';
 import { userDetailState, userState } from './user/user.routing';
-import { contactState } from './contact/contact.routing';
+import { contactFormState, contactState } from './contact/contact.routing';
 
 import { AppComponent } from './app.component';
 import {UrlService, StateProvider, Ng1StateDeclaration} from '@uirouter/angularjs';
@@ -37,6 +37,7 @@ export const appModule: IModule =
                             $stateProvider.state ( userState );
                             $stateProvider.state ( userDetailState );
                             $stateProvider.state ( contactState);
+                            $stateProvider.state ( contactFormState );
 
                         } )
                         .component ( 'appRoot', AppComponent )
