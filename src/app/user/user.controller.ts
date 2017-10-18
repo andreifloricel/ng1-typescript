@@ -12,8 +12,7 @@ export class UserController {
 
     constructor ( public $user: UserService ) {
 
-
-        $user.addUser( <IUser>{ firstname: 'msg', lastname: Date.now().toString(10)} );
+        // $user.addUser( <IUser>{ firstname: 'msg', lastname: Date.now().toString(10)} );
 
     }
 }
