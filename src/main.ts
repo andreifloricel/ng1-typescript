@@ -7,7 +7,7 @@ import 'angularI18n';
 
 angular.element( document ).ready(
     () => {
-        console.log ( 'dom is ready' );
+        // console.log ( 'dom is ready' );
         angular.bootstrap( document,
             [ appModule.name ] )
     }

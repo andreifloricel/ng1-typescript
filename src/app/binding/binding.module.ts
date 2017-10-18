@@ -11,11 +11,11 @@ export const bindingModule: IModule = angular.module( 'app.binding' , [ sharedMo
      // .controller({ BindingController }  )
 
      .config( ( $controllerProvider: IControllerProvider) => {
-        console.log ( 'config binding module' );
+        // console.log ( 'config binding module' );
          $controllerProvider.register('BindingController', BindingController );
     })
     .run( ( ) => {
-        console.log ( 'binding is running' );
+        // console.log ( 'binding is running' );
     })
 
     .constant( 'author', 'uenlue')

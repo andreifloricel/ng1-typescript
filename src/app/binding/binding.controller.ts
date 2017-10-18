@@ -4,7 +4,7 @@
  */
 import { IOnInit } from 'angular';
 
-console.log ( 'BindingCtr loaded' );
+// console.log ( 'BindingCtr loaded' );
 export default class BindingController implements IOnInit {
 
     imgFolder: string = 'images';
@@ -27,8 +27,7 @@ export default class BindingController implements IOnInit {
     className: string = 'red';
 
     constructor ( private author: string ) {
-
-        console.log ( 'BindingCtr build', author );
+        // console.log ( 'BindingCtr build', author );
     }
 
     checkYellow (): Boolean {
@@ -47,7 +46,7 @@ export default class BindingController implements IOnInit {
     }
 
     $onInit (): void {
-        console.log ( 'ctrl is init' );
+        // console.log ( 'ctrl is init' );
         this.name = `saban ${this.author}`
     }
 

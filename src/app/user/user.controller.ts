@@ -2,12 +2,18 @@
  * File created by suenlue on 18.10.17.
  * Copyright (c) 2017 by netTrek GmbH & Co. KG
  */
+import UserService from './user.service';
 import { IUser } from './user.interface';
-import users from './user.data';
 
 export class UserController {
 
     now: Date = new Date ();
     search: {firstName?: string, lastName?: string } = {};
-    users: IUser[] = users;
+
+    constructor ( public $user: UserService ) {
+
+
+        $user.addUser( <IUser>{ firstname: 'msg', lastname: Date.now().toString(10)} );
+
+    }
 }

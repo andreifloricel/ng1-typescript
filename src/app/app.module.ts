@@ -20,10 +20,10 @@ export const appModule: IModule   =
                               $window: IWindowService,
                               $document: IDocumentService ) => {
                          // console.log ( 'app is running', author );
-                         $log.log ('Hello World ' );
-                         $log.debug ('debug Hello World ' );
+                         // $log.log ('Hello World ' );
+                         // $log.debug ('debug Hello World ' );
 
-                         console.log ( $window === window );
+                         // console.log ( $window === window );
 
                          // console.log (  );
                          $document.find( 'body' )

@@ -88,12 +88,12 @@
         </div>
     </li>
     <li class="row"
-            ng-repeat="user in $ctrl.users | filter : $ctrl.search"
+            ng-repeat="user in $ctrl.$user.users | limitTo : 5 : -5 | orderBy : 'id' : true | filter : $ctrl.search"
         ng-class-odd="'odd'"
         ng-class-even="'even'"
     >
-        <span class="col-xs-6"><i class="glyphicon glyphicon-user"></i> {{::user.firstName}}</span>
-        <span class="col-xs-6">{{::user.lastName}}</span>
+        <span class="col-xs-6"><i class="glyphicon glyphicon-user"></i> {{::user.firstname}}</span>
+        <span class="col-xs-6">{{::user.lastname}}</span>
     </li>
 </ul>
 

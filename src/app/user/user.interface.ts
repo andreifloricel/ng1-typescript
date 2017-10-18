@@ -5,11 +5,12 @@
 
 
 export interface IUser {
-    id: number;
-    firstName: string;
-    lastName: string;
-    gender: string;
-    age: number;
-    registered: any;
-    email: string;
+    id: string;
+    firstname: string;
+    lastname: string;
+    birthday: string;
+    street: string;
+    street_no: string;
+    zip: string;
+    city: string;
 }
