@@ -7,11 +7,11 @@ export const UserNameComponent: IComponentOptions = {
         user: '<',
         delete: '&'
     },
-    require: { userCtrl: 'user' },
+    // require: { userCtrl: 'user' },
     controller: class UserNameController implements IOnInit, IOnDestroy {
 
         user : IUser;
-        userCtrl: any;
+        // userCtrl: any;
         
         $onInit (): void {
             // console.log ( this.userCtrl ); //avoid because ob ng2+ - use & @Output
