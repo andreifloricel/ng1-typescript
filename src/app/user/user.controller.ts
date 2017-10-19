@@ -8,11 +8,12 @@ import { IUser } from './user.interface';
 export class UserController {
 
     now: Date = new Date ();
-    search: {firstName?: string, lastName?: string } = {};
+    search: {firstname?: string, lastname?: string } = {};
 
     constructor ( public $user: UserService ) {
 
         // $user.addUser( <IUser>{ firstname: 'msg', lastname: Date.now().toString(10)} );
 
     }
+
 }

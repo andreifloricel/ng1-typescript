@@ -11,8 +11,10 @@ import {
 export interface IUserService {
     users: IUser[];
     addUser ( user: IUser ): IPromise<number | void>;
+    delete ( user: IUser  ) : boolean;
 }
 export default class UserService implements IUserService {
+
     userCache: ICacheObject;
     users: IUser[];
     selecterUser: IUser;
@@ -23,6 +25,13 @@ export default class UserService implements IUserService {
     ) {
         this.init ();
     }
+
+    delete ( user: IUser ): boolean {
+        const ind: number = this.users.indexOf( user );
+        this.users.splice( ind, 1 );
+        return ind !== -1;
+    }
+
     public addUser ( user: IUser ): any {
         
         const promise: any = this.$http.post<IUser>( this.restEndpoint, user ).then( 

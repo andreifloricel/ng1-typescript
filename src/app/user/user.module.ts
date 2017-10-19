@@ -7,10 +7,14 @@ import { IModule } from 'angular';
 import { UserController } from './user.controller';
 import { default as UserService } from './user.service';
 import { utilsModule } from '../utils/utils.module';
+import { userHeaderModule } from './user-header/user-header.module';
+import { userNameModule } from './user-name/user-name.module';
 
 export const userModule: IModule =
          angular.module( 'app.user', [
-             utilsModule.name
+             utilsModule.name,
+             userHeaderModule.name,
+             userNameModule.name
          ] )
              .controller( {UserController} )
              .service('$user', UserService)

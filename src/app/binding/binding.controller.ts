@@ -7,6 +7,8 @@ import { IOnInit } from 'angular';
 // console.log ( 'BindingCtr loaded' );
 export default class BindingController implements IOnInit {
 
+    headerTitle: string = 'header info from binding ctrl';
+
     imgFolder: string = 'images';
     imgFile: string = 'image-881881-galleryV9-htln-881881.jpg';
     link: string = 'http://netTrek.de';
@@ -29,6 +31,10 @@ export default class BindingController implements IOnInit {
 
     constructor ( private author: string ) {
         // console.log ( 'BindingCtr build', author );
+    }
+
+    headerWasUpdate ( msg: string ) {
+        console.log ( 'info from child', msg );
     }
 
     checkYellow (): Boolean {
