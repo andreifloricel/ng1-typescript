@@ -7,6 +7,6 @@ import * as angular from 'angular';
 import { UserNameComponent } from './user-name.component';
 
 export const userNameModule: IModule =
-                     angular.module( 'app.user.header', [])
+                     angular.module( 'app.user.name', [])
                          .component( 'userName', UserNameComponent )
 ;

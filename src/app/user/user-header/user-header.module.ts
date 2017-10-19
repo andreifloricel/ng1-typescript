@@ -9,4 +9,7 @@ import { UserHeaderComponent } from './user-header.component';
 export const userHeaderModule: IModule =
                      angular.module( 'app.user.header', [])
                          .component( 'userHeader', UserHeaderComponent )
+                         .run(()=>{
+    console.log ( userHeaderModule );
+                         })
 ;

@@ -36,20 +36,23 @@
     })
 </script>
 
-<!--
+
 <div class="jumbotron"
      ng-controller="BindingController as $ctrl"
      ng-class="{'yellow': $ctrl.checkYellow(), 'red': $ctrl.checked}"
 >
-
-    <user-header title="::$ctrl.headerTitle"
+    <div class="col-xs-6 input-group" style="float: left;">
+        <span class="input-group-addon">firstName</span>
+        <input type="text" class="form-control" ng-model="$ctrl.headerTitle">
+    </div>
+    <user-header title="$ctrl.headerTitle"
                  update="$ctrl.headerWasUpdate( $event )"></user-header>
 
+<!--
     <div class="input-group">
         <span class="input-group-addon">color</span>
         <input type="text" class="form-control" ng-model="$ctrl.color">
     </div>
-
     <h1 ng-if="!$ctrl.checked" do-hover="$ctrl.color">Hello World</h1>
 
     <img ng-src="http://cdn2.spiegel.de/{{$ctrl.imgFolder}}/{{$ctrl.imgFile}}" alt="" class="img-thumbnail">
@@ -84,8 +87,8 @@
             id="btn"
             ng-click="$ctrl.onClick( 'cool', $event )">Hello
     </button>
+    -->
 </div>
--->
 
 
 <ul class="list-unstyled container" ng-controller="UserController as $ctrl">
@@ -106,7 +109,7 @@
     >
 
         <user-name user="user"
-                   delete="$ctrl.$user.delete( $event )">
+                   delete="$ctrl.deleteUsr( $event )">
         </user-name>
 
     </li>

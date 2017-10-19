@@ -16,4 +16,9 @@ export class UserController {
 
     }
 
+
+    deleteUsr ( user: IUser ) {
+        this.$user.delete( user );
+    }
+
 }
