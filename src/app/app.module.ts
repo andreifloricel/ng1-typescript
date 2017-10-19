@@ -13,7 +13,7 @@ import { userDetailState, userState } from './user/user.routing';
 import { contactFormState, contactState } from './contact/contact.routing';
 
 import { AppComponent } from './app.component';
-import {UrlService, StateProvider, Ng1StateDeclaration} from '@uirouter/angularjs';
+import {UrlService, StateProvider, Transition, TransitionService} from '@uirouter/angularjs';
 import { userDetailModule } from './user/user-detail/user-detail.module';
 
 export const appModule: IModule =
@@ -40,5 +40,11 @@ export const appModule: IModule =
                             $stateProvider.state ( contactFormState );
 
                         } )
+                        .run ( ($transitions: TransitionService ) => {
+                            $transitions.onBefore( { to: 'contact.*'}, ( transition: Transition ) => {
+                                // console.log ( transition, transition.from(), transition.to() );
+                                transition.abort();
+                            })
+                        })
                         .component ( 'appRoot', AppComponent )
 ;
