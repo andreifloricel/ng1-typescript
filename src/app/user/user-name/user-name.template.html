@@ -1,5 +1,7 @@
-<span class="col-xs-6"><i class="glyphicon glyphicon-user"></i> {{$ctrl.user.firstname}}</span>
-<span class="col-xs-5">{{$ctrl.user.lastname}}</span>
+<a ui-sref="userDetail ({id: $ctrl.user.id})" ui-sref-active="active">
+    <span class="col-xs-6"><i class="glyphicon glyphicon-user"></i> {{$ctrl.user.firstname}}</span>
+    <span class="col-xs-5">{{$ctrl.user.lastname}}</span>
+</a>
 <i class="col-xs-1 glyphicon glyphicon-remove-sign"
    ng-click="$ctrl.delete ({$event: $ctrl.user})">
 </i>

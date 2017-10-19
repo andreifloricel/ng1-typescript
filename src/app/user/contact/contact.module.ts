@@ -7,6 +7,6 @@ import { ContactComponet } from './contact.component';
 import * as angular from 'angular';
 
 export const contactModule: IModule =
-           angular.module( 'app.user.home', [] )
+           angular.module( 'app.user.contact', [] )
                .component( 'contact', ContactComponet )
 ;

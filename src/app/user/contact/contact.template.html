@@ -1,1 +1,20 @@
-<strong>contact workd!</strong>
+Contact is Working
+<address>
+    Written by <a ui-sref="contact.form ({to: 'Jon Doe'})">Jon Doe</a>.<br>
+    Visit us at:<br>
+    Example.com<br>
+    Box 564, Disneyland<br>
+    USA
+</address>
+
+<address>
+    Written by <a ui-sref="contact.form ({to: 'Saban Ünlü'})">Saban Ünlü</a>.<br>
+    Visit us at:<br>
+    Example.com<br>
+    Box 564, Disneyland<br>
+    USA
+</address>
+
+<ui-view></ui-view>
+
+<button class="btn btn-primary" ng-click="$ctrl.goHome()">go home</button>

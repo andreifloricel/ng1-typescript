@@ -35,11 +35,13 @@ export interface IUserService {
     start: Date;
     last: Date;
     users: IUser[];
+    getUserById ( id: number ): IPromise<IHttpResponse<IUser>>;
     addUser ( user?: IUser ) : IPromise<number | void>;
     refresh (): void;
 }
 
 export default class UserService implements IUserService {
+
 
     static $inject: string[] = [ '$cookies',
                                  '$http',
@@ -61,6 +63,11 @@ export default class UserService implements IUserService {
 
     public refresh( ) {
         this.loadUsers();
+    }
+
+    getUserById ( id: number ): IPromise<IHttpResponse<IUser>> {
+        const endpoint: string = 'http://rest-api.flexlab.de/index.php/api/user';
+        return this.$http.get<IUser> ( endpoint + '/' + id );
     }
 
     public addUser ( user?: IUser ) : IPromise<number | void> {

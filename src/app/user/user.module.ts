@@ -6,12 +6,14 @@ import { utilsModule } from '../utils/utils.module';
 import { userHeaderModule } from './user-header/user-header.module';
 import { userNameModule } from './user-name/user.name.module';
 import { UserComponent } from './user.component';
+import { userdetailsModule } from './user-detail/user-detail.module';
 
 export const userModule: IModule =
                  angular.module ( 'app.user', [
                      'ngCookies',
                      userHeaderModule.name,
                      userNameModule.name,
+                     userdetailsModule.name,
                      utilsModule.name
                  ] )
                         .config( ( $httpProvider: IHttpProvider ) => {
