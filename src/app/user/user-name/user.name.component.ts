@@ -7,7 +7,7 @@ export const UserNameComponent: IComponentOptions = {
         user: '<',
         delete: '&'
     },
-    require: { userCtrl: '^user' },
+    require: { userCtrl: 'user' },
     controller: class UserNameController implements IOnInit, IOnDestroy {
 
         user : IUser;
